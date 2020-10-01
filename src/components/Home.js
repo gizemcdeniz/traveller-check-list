@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
-
+import Board from "./Board"
 function Home() {
   return (
     <div className="App">
@@ -12,40 +12,36 @@ function Home() {
                 <Form.Group controlId="exampleForm.ControlSelect1">
                     <Form.Label>Who is traveller?</Form.Label>
                     <Form.Control as="select">
-                    <option>Single(Female)</option>
-                    <option>Single(Male)</option>
+                    <option>Single (Female)</option>
+                    <option>Single (Male)</option>
                     <option>Couple</option>
-                    <option>Family(with child)</option>
+                    <option>Family (with child)</option>
                     </Form.Control>
                 </Form.Group>
                 <Form.Group controlId="exampleForm.ControlSelect1">
                     <Form.Label>Destination</Form.Label>
                     <Form.Control as="select">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                    <option>Europe</option>
+                    <option>Africa</option>
+                    <option>Asia</option>
+                    <option>America</option>
+                    <option>Australia</option>
                     </Form.Control>
                 </Form.Group>
                 <Form.Group controlId="exampleForm.ControlSelect1">
-                    <Form.Label>Destination</Form.Label>
+                    <Form.Label>Accommodation</Form.Label>
                     <Form.Control as="select">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                    <option>Hotel</option>
+                    <option>Hostel</option>
+                    <option>Camping</option>
                     </Form.Control>
                 </Form.Group>
                 <Form.Group controlId="exampleForm.ControlSelect1">
-                    <Form.Label>Destination</Form.Label>
+                    <Form.Label>Expected Weather</Form.Label>
                     <Form.Control as="select">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                    <option>Sunny</option>
+                    <option>Rainy</option>
+                    <option>Snowy</option>
                     </Form.Control>
                 </Form.Group>
         </Form>
@@ -55,6 +51,7 @@ function Home() {
         Create Travel List
       </Button>
       </Container>
+      <Board />
     </div>
   );
 }
