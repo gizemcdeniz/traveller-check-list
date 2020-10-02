@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { Component, useState } from "react";
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
 import Board from "./Board"
+
+
 function Home() {
+  const [isVisible, setIsVisible] = React.useState(false);
+
+
+
+ const onClickEvent = (e) => { 
+  console.log(isVisible)
+    setIsVisible(
+      !isVisible
+    )
+  }
+
+
   return (
     <div className="App">
         <Container fluid>
@@ -45,13 +59,11 @@ function Home() {
                     </Form.Control>
                 </Form.Group>
         </Form>
-
-
-      <Button variant="secondary" size="lg" active>
+      <Button onClick={(e) => onClickEvent(e)} variant="secondary" size="lg" active>
         Create Travel List
       </Button>
       </Container>
-      <Board />
+      {isVisible ? (<Board />) : ("") } 
     </div>
   );
 }

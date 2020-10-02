@@ -16,4 +16,4 @@ var firebaseConfig = {
   firebase.analytics();
 
 
-  export default firebase.firestore(); 
+  export default firebase.firestore();
