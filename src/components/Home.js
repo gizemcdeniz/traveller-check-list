@@ -35,6 +35,13 @@ function Home() {
         /* console.log(travelData); */
         setTrip(travelData);
     }
+    const clearCard = e => {
+      e.preventDefault()
+      setDestination("")
+      setDate("")
+      setWeather("")
+      setTrip([])
+    }
 
     const addTravel = e => {
       e.preventDefault()
@@ -85,22 +92,19 @@ function Home() {
         </Button>
       </form>
       </Container>
-      <Container>
         <Row>
-          <Col xs={6} md={4}>
             {trip.map((trip) => {
               return ( 
                 <TravelCard 
                   destination={trip.destination}
                   date={trip.date}
                   weather={trip.weather}
-                  items={trip.items} 
+                  items={trip.items}
+                  clearList={clearCard}
                 />
               );
             })}
-          </Col>
         </Row>
-      </Container>
     </div>
   );
 }

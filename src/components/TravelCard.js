@@ -6,7 +6,7 @@ export default function TravelCard(props) {
     console.log(props)
     const style = {
         width: '18rem',
-        margin: '1em'
+        margin: '2em'
     }
     return (
         <div>
@@ -23,6 +23,13 @@ export default function TravelCard(props) {
                     {props.items}
                 </Card.Text>
                 </Card.Body>
+                <button
+                    type="button"
+                    className="btn btn-danger text-uppercase mt-5"
+                    onClick={props.clearList}
+                    >
+                    Delete List
+                </button>
             </Card>
             <br />
         </div>
