@@ -1,13 +1,18 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
+import Form from 'react-bootstrap/Form'
 
 
 export default function TravelCard(props) {
-    console.log(props)
+    // console.log(props)
+    //console.log(props.travelitems)
     const style = {
         width: '18rem',
         margin: '2em'
     }
+    console.log(props.travelitems)
+    console.log(props.taveller)
+
     return (
         <div>
             <Card
@@ -16,13 +21,22 @@ export default function TravelCard(props) {
                 style={style}
                 className="mb-2"
             >
-                <Card.Header>{props.date} {props.weather}</Card.Header>
+                <Card.Header> {props.destination}</Card.Header>
                 <Card.Body>
-                <Card.Title>{props.destination} </Card.Title>
+                <Card.Title>{props.traveller} </Card.Title>
+                <Card.Title>{props.travelitems} </Card.Title>
+
                 <Card.Text>
                     {props.items}
                 </Card.Text>
+                <Card.Text>
+                    {props.option}
+                </Card.Text>
                 </Card.Body>
+                <Form.Group controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" id="checkbox"/>
+                {props.travelitems}
+                </Form.Group>
                 <button
                     type="button"
                     className="btn btn-danger text-uppercase mt-5"
