@@ -7,6 +7,8 @@ import "./Form.css";
 import TravelCard from "./TravelCard";
 import React, { useState, useEffect } from 'react'
 import db from '../fireStoreData'
+import Item from './Item'
+
 
 function Home() {
   /* const [isVisible, setIsVisible] = React.useState(false);
@@ -93,6 +95,7 @@ function Home() {
   return (
     <div className="App">
       <Container fluid>
+        <Item/>
       <h1>{demoItem}</h1>
       <h4>What to pack? what should you prepare before you travel?</h4>
       <form onSubmit={addTravel}>
