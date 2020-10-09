@@ -4,7 +4,7 @@ import db from "../../fireStoreData";
 
 export default function TravelCards() {
   const [cards, setCards] = useState([]);
-
+ 
   //Fetches all the cards data that we have in the db
   //And assign it to the cards state
   const fetchData = async () => {

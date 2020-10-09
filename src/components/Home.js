@@ -28,6 +28,7 @@ function Home() {
 
     const [traveller, setTraveller] = useState("");
     const [travelitems, setTravelitems] = useState([]);
+    const [submitBtn, setSubmitBtn] = useState([])
     const fetchData = async () => {
         const travelRes = await db.collection('trips').get()
         /*
@@ -54,33 +55,36 @@ function Home() {
         setTravelitems(travelItems);
     }
 
-    const addTravel = e => {
-      e.preventDefault()
+    const addTravel = () => {
       db.collection('trips').add({
         destination: destination,
         date: date,
         weather: weather,
         items: items,
         traveller: traveller,
-        travelitems: travelitems
+        travelitems: travelitems,
+        submitBtn : submitBtn
       })
       setDestination("")
       setDate("")
       setWeather(0)
       setItems("")
       setTraveller()
+
     }
 
 
     const history = useHistory();
-
     const routeChange = () => {
       let path = "/travelcard"
-      history.pushState(path)
-      /* addTravel(); */
+      history.push(path)
+      addTravel()
+
+      
     }
 
 
+  
     const clearCard = e => {
       e.preventDefault()
       setDestination("")
@@ -92,9 +96,12 @@ function Home() {
       setTraveller([])
     }
 
+
     useEffect(()=>{
         fetchData()
       },[destination])
+
+
 
   return (
     <div className="App">
