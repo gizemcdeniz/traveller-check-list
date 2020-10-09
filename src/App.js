@@ -1,4 +1,9 @@
-import React from "react";
+import React from 'react';
+import './App.css';
+
+import db from './fireStoreData.js';
+import Login from './components/Login.js'
+import TravelCard from './components/TravelCard.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,39 +11,43 @@ import {
   Link
 } from "react-router-dom";
 
+
 export default function App() {
   return (
-    <Router>
+    <div className="App">
+      <Router>
       <div>
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/login">Login</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/travelcard">TravelCard</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/home">Home</Link>
             </li>
           </ul>
         </nav>
-
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-            <About />
+          <Route path="/login">
+            <Login />
           </Route>
-          <Route path="/users">
-            <Users />
+          <Route path="/travelcard">
+            <TravelCard />
           </Route>
-          <Route path="/">
+          <Route path="/home">
             <Home />
           </Route>
         </Switch>
       </div>
-    </Router>
+   </Router>
+  );
+
+    </div>
   );
 }
 
