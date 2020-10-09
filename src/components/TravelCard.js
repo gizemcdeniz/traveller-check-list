@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
+import Item from "./Item"
 
 
 export default function TravelCard(props) {
@@ -37,6 +38,7 @@ export default function TravelCard(props) {
                 <Form.Check type="checkbox" id="checkbox"/>
                 {props.travelitems}
                 </Form.Group>
+                <Item />
                 <button
                     type="button"
                     className="btn btn-danger text-uppercase mt-5"
