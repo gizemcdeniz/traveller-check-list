@@ -6,9 +6,8 @@ import Col from 'react-bootstrap/Col'
 import "./Form.css";
 import TravelCard from "./TravelCard";
 import React, { useState, useEffect } from 'react'
-import db from '../fireStoreData'
-import Item from './Item'
-
+import db from '../fireStoreData';
+import { useHistory } from "react-router-dom";
 
 function Home() {
   /* const [isVisible, setIsVisible] = React.useState(false);
@@ -19,7 +18,7 @@ function Home() {
       !isVisible
     )
   } */
-    const [demoItem, setDemoItem] = useState("");
+   
     const [destination, setDestination] = useState("");
     const [date, setDate] = useState("");
     const [weather, setWeather] = useState("");
@@ -30,10 +29,6 @@ function Home() {
     const [traveller, setTraveller] = useState("");
     const [travelitems, setTravelitems] = useState([]);
     const fetchData = async () => {
-        const res = await db.collection('demo').doc('demoItem').get()
-        const data = res.data()
-        /* console.log(data.title); */
-        setDemoItem(data.title);
         const travelRes = await db.collection('trips').get()
         /*
         trip => trip.data() (what you're doing right now)
@@ -57,17 +52,6 @@ function Home() {
        // console.log(travelIt.docs)
         setTrip(travelData);
         setTravelitems(travelItems);
-
-    }
-    const clearCard = e => {
-      e.preventDefault()
-      setDestination("")
-      setDate("")
-      setWeather(0)
-      // You need to delete the specific item, not all of the items.
-      // You don't want to do this way, you want to do onSnapshot.
-      setTrip([])
-      setTraveller([])
     }
 
     const addTravel = e => {
@@ -80,12 +64,32 @@ function Home() {
         traveller: traveller,
         travelitems: travelitems
       })
-
       setDestination("")
       setDate("")
       setWeather(0)
       setItems("")
       setTraveller()
+    }
+
+
+    const history = useHistory();
+
+    const routeChange = () => {
+      let path = "/travelcard"
+      history.pushState(path)
+      /* addTravel(); */
+    }
+
+
+    const clearCard = e => {
+      e.preventDefault()
+      setDestination("")
+      setDate("")
+      setWeather(0)
+      // You need to delete the specific item, not all of the items.
+      // You don't want to do this way, you want to do onSnapshot.
+      setTrip([])
+      setTraveller([])
     }
 
     useEffect(()=>{
@@ -95,10 +99,8 @@ function Home() {
   return (
     <div className="App">
       <Container fluid>
-        <Item/>
-      <h1>{demoItem}</h1>
       <h4>What to pack? what should you prepare before you travel?</h4>
-      <form onSubmit={addTravel}>
+      <form onSubmit={routeChange}>
         <Form className="form">
         <Form.Group controlId="formDestination">
             <Form.Label>Who's Travelling?</Form.Label>
@@ -145,7 +147,7 @@ function Home() {
         </Button>
       </form>
       </Container>
-      <Row>
+      {/* <Row>
             {trip.map((trip) => {
               return ( 
                 <TravelCard 
@@ -160,7 +162,7 @@ function Home() {
                 />
               );
             })}
-        </Row>
+        </Row> */}
     </div>
   );
 }

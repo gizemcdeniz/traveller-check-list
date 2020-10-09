@@ -1,8 +1,7 @@
 import React from "react";
 import "./App.css";
-
-import db from "./fireStoreData.js";
 import Login from "./components/Login.js";
+import Home from "./components/Home.js";
 // import TravelCard from "./components/TravelCard.js";
 import TravelCards from "./container/travelCards/TravelCards";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -43,16 +42,4 @@ export default function App() {
       );
     </div>
   );
-}
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }

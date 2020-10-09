@@ -2,9 +2,12 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Items from "./Items";
+import Row from 'react-bootstrap/Row';
+
 
 export default function TravelCard(props) {
-  // console.log(props)
+  console.log(props.items)
+  console.log(props)
   //console.log(props.travelitems)
   const style = {
     width: "18rem",
@@ -29,14 +32,21 @@ export default function TravelCard(props) {
           <Form.Check type="checkbox" id="checkbox" />
           {props.travelitems}
         </Form.Group> */}
-
-        <button
-          type="button"
-          className="btn btn-danger text-uppercase mt-5"
-          onClick={props.clearList}
-        >
-          Delete List
-        </button>
+        <Row>
+            <button
+            type="button"
+            className="btn btn-danger text-uppercase mt-5"
+            onClick={props.clearList}
+            >
+            Delete List
+            </button>
+            <button
+            type="button"
+            className="btn btn-danger text-uppercase mt-5"
+            >
+            Edit
+            </button>
+        </Row>
       </Card>
       <br />
     </div>
