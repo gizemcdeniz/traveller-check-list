@@ -29,13 +29,14 @@ function Home() {
         weather: weather,
         items: items,
         traveller: traveller,
-        travelitems: travelitems
+        travelitems: travelitems,
       })
       setDestination("")
       setDate("")
       setWeather(0)
       setItems("")
       setTraveller()
+
     }
 
     //Redirecting page
@@ -47,6 +48,7 @@ function Home() {
     }
 
 
+  
     const clearCard = e => {
       e.preventDefault()
       setDestination("")
@@ -61,6 +63,8 @@ function Home() {
     /* useEffect(()=>{
         fetchData()
       },[destination]) */
+
+
 
   return (
     <div className="App">

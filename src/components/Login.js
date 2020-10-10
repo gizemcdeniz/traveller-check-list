@@ -1,10 +1,20 @@
 import React from 'react'
 import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
+import { useHistory } from "react-router-dom";
 
  function Login() {
+
+    const history = useHistory();
+    const routeChange = () => {
+      let path = "/home"
+      history.push(path)
+
+      
+    }
     return (
         <div>
+             <form onSubmit={routeChange}>
             <Form>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
@@ -25,6 +35,7 @@ import { Button } from 'react-bootstrap';
                     Submit
                 </Button>
                 </Form>
+                </form>
          </div>
     )
 }
