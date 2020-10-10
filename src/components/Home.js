@@ -38,12 +38,15 @@ function Home() {
       setTraveller()
     }
 
+    //Redirecting page
     let history = useHistory();
     const routeChange = () => {
       let path = "/travelcard"
       history.push(path)
       addTravel();
     }
+
+
     const clearCard = e => {
       e.preventDefault()
       setDestination("")
@@ -99,10 +102,6 @@ function Home() {
               <option value="Hot Sunny">Hot/Sunny</option>
                <option value="Cold Rainy">Cold / Rainy</option>
             </Form.Control>
-          </Form.Group>
-          <Form.Group controlId="formItems">
-            <Form.Label>Items</Form.Label>
-            <Form.Control onChange={e => setItems(e.target.value)} value={items} type="text" placeholder="Enter Items" />
           </Form.Group>
         </Form>
         <Button variant="primary" type="submit" active>

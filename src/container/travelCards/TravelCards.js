@@ -8,22 +8,40 @@ export default function TravelCards() {
   //Fetches all the cards data that we have in the db
   //And assign it to the cards state
   const fetchData = async () => {
-    const travelItems = await db.collection("travelitems");
-    const snapshot = await travelItems.get();
+    
+    
     await db.collection("travelitems").onSnapshot((snapshot) => {
       snapshot.docChanges().forEach((change) => {
         if (change.type === "added") {
           console.log(change.doc.id);
           setCards((prevState) => [...prevState, change.doc.data().item]);
         } else if (change.type === "modified") {
+          console.log(change.doc.data(), "=>", change.doc.id);
+          setCards((prevCards) => {
+            const newArrayCards = [...prevCards];
+            let index = newArrayCards.findIndex((el) => el.id === change.doc.id);
+            console.log(index);
+            if (index !== -1) {
+              newArrayCards[index] = {
+                ...change.doc.data(),
+                id: change.doc.id,
+              }
+            }
+            return newArrayCards;
+          })
+
         } else if (change.type === "removed") {
           // change.doc.id === shows the deleted board id
           // !== change.doc.id
-          setCards((prevState) => {
-            const newCards = [...prevState];
+          setCards((prevCards) => {
+            const newArrayCards = [...prevCards];
             // write code to filter the card that's removed from the db
-
-            return newCards;
+            let index = newArrayCards.findIndex((el) => el.id === change.doc.id);
+            if (index !== -1) {
+              newArrayCards.splice(index, 1);
+              console.log(newArrayCards);
+            }
+            return newArrayCards;
           });
         }
         console.log(change.type, change.doc.data());
