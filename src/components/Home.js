@@ -10,15 +10,7 @@ import db from '../fireStoreData';
 import { useHistory } from "react-router-dom";
 
 function Home() {
-  /* const [isVisible, setIsVisible] = React.useState(false);
-
- const onClickEvent = (e) => { 
-  console.log(isVisible)
-    setIsVisible(
-      !isVisible
-    )
-  } */
-   
+  
     const [destination, setDestination] = useState("");
     const [date, setDate] = useState("");
     const [weather, setWeather] = useState("");
@@ -28,34 +20,9 @@ function Home() {
 
     const [traveller, setTraveller] = useState("");
     const [travelitems, setTravelitems] = useState([]);
-    const fetchData = async () => {
-        const travelRes = await db.collection('trips').get()
-        /*
-        trip => trip.data() (what you're doing right now)
-        trip=> trip.id (gets the id of the trip so you can delete it)
-        trip => trip.data() (gets the "main data" of the trip)
-        .map(trip => {
-          return {
-            id: trip.id,
-            ...trip.data(),
-          }
-        })
-        */
-        const travelData = travelRes.docs.map(trip => trip.data())
-        console.log(travelData)
-        const travelId = travelRes.docs.map(trip => trip.id)
-        console.log(travelId)
-        const travelIt = await db.collection('travelitems').get()
-        const travelItems = travelIt.docs.map(travelitems => travelitems.data())
-        //console.log(travelItems);
-        // console.log(travelData);
-       // console.log(travelIt.docs)
-        setTrip(travelData);
-        setTravelitems(travelItems);
-    }
+    
 
     const addTravel = e => {
-      e.preventDefault()
       db.collection('trips').add({
         destination: destination,
         date: date,
@@ -71,16 +38,12 @@ function Home() {
       setTraveller()
     }
 
-
-    const history = useHistory();
-
+    let history = useHistory();
     const routeChange = () => {
       let path = "/travelcard"
-      history.pushState(path)
-      /* addTravel(); */
+      history.push(path)
+      addTravel();
     }
-
-
     const clearCard = e => {
       e.preventDefault()
       setDestination("")
@@ -92,9 +55,9 @@ function Home() {
       setTraveller([])
     }
 
-    useEffect(()=>{
+    /* useEffect(()=>{
         fetchData()
-      },[destination])
+      },[destination]) */
 
   return (
     <div className="App">

@@ -20,19 +20,14 @@ export default function TravelCard(props) {
     <div>
       <Card bg="primary" text="white" style={style} className="mb-2">
         <Items items={props.items} />
-        {/* <Card.Header> {props.destination}</Card.Header>
+        <Card.Header> {props.destination}</Card.Header>
         <Card.Body>
           <Card.Title>{props.traveller} </Card.Title>
           <Card.Title>{props.travelitems} </Card.Title>
 
           <Card.Text>{props.items}</Card.Text>
           <Card.Text>{props.option}</Card.Text>
-        </Card.Body>
-        <Form.Group controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" id="checkbox" />
-          {props.travelitems}
-        </Form.Group> */}
-        <Row>
+          <Row>
             <button
             type="button"
             className="btn btn-danger text-uppercase mt-5"
@@ -47,6 +42,8 @@ export default function TravelCard(props) {
             Edit
             </button>
         </Row>
+        </Card.Body>
+        
       </Card>
       <br />
     </div>
