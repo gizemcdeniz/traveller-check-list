@@ -10,7 +10,7 @@ export default function TravelCards() {
   const fetchData = async () => {
     
     
-    await db.collection("travelitems").onSnapshot((snapshot) => {
+    await db.collection("usertrip").onSnapshot((snapshot) => {
       snapshot.docChanges().forEach((change) => {
         if (change.type === "added") {
           console.log(change.doc.id);

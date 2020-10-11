@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Login from "./components/Login.js";
-import Home from "./components/Home.js";
+import Input from "./components/Input.js";
 // import TravelCard from "./components/TravelCard.js";
 import TravelCards from "./container/travelCards/TravelCards";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -38,7 +38,7 @@ export default function App() {
                 <TravelCards />
               </Route>
               <Route path="/home">
-                <Home />
+                <Input />
               </Route>
             </Switch>
           </div>
