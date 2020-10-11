@@ -4,6 +4,7 @@ import Login from "./components/Login.js";
 import Input from "./components/Input.js";
 // import TravelCard from "./components/TravelCard.js";
 import TravelCards from "./container/travelCards/TravelCards";
+import Toast from "./components/Toast.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar'
 import { Nav } from "react-bootstrap";
@@ -35,7 +36,7 @@ export default function App() {
                 <Login />
               </Route>
               <Route path="/travelcard">
-                <TravelCards />
+                <Toast/>
               </Route>
               <Route path="/home">
                 <Input />

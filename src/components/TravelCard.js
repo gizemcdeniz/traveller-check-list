@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Items from "./Items";
-import Row from 'react-bootstrap/Row';
+import {Row, ListGroup} from 'react-bootstrap';
 import db from "../fireStoreData";
 import React, { useState, useEffect } from 'react'
 
@@ -67,8 +67,8 @@ export default function TravelCard(props) {
             </button>
         </Row>
         </Card.Body>
-        
       </Card>
+      
       
       ))}
     </div>
