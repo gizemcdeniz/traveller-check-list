@@ -82,10 +82,16 @@ function Input() {
             </Form.Control>
           </Form.Group>
 
-          <Form.Group controlId="formDate">
-            <Form.Label>Accommodation:</Form.Label>
-            <Form.Control onChange={e => setformAccom(e.target.value)} value={formAccom} type="text" placeholder="Enter Date" />
+          <Form.Group controlId="formAccom">
+            <Form.Label>Destination</Form.Label>
+            <Form.Control as="select" defaultValue="Choose..." onChange={e => setformAccom(e.target.value)} value={formAccom}>
+              <option value="0">Choose...</option>
+              <option value="Hotel">Hotel</option>
+               <option value="Hostel">Hostel</option>
+               <option value="Camping">Camping</option>
+            </Form.Control>
           </Form.Group>
+
 
           <Form.Group controlId="formGridState">
             <Form.Label>Expected Weather</Form.Label>

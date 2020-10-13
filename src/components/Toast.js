@@ -21,7 +21,7 @@ export default function TravelCard(props) {
     const res = await db.collection('usertrip').get();
     //console.log(res);
    const usersData = res.docs.map(trip => trip.data())
-   //console.log(usersData)
+   console.log(usersData)
  
     // const usersRes = await db.collection('users').get() 
     // console.log(usersRes);
@@ -34,7 +34,7 @@ export default function TravelCard(props) {
 
    useEffect(()=>{
         fetchData()
-      },[formTrip])
+      },[])
 
   return (
     <div>

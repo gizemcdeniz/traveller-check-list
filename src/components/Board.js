@@ -77,9 +77,14 @@ function Board() {
             </Form.Control>
           </Form.Group>
 
-          <Form.Group controlId="formDate">
-            <Form.Label>Accommodation:</Form.Label>
-            <Form.Control onChange={e => setformAccom(e.target.value)} value={formAccom} type="text" placeholder="Enter Date" />
+          <Form.Group controlId="formAccom">
+            <Form.Label>Accommodation</Form.Label>
+            <Form.Control as="select" defaultValue="Choose..." onChange={e => setformAccom(e.target.value)} value={formAccom}>
+              <option value="0">Choose...</option>
+              <option value="Europe">Hotel</option>
+               <option value="Africa">Hostel</option>
+               <option value="America">Camping</option>
+            </Form.Control>
           </Form.Group>
 
           <Form.Group controlId="formGridState">
