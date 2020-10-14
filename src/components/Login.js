@@ -1,7 +1,10 @@
 import React from 'react'
-import { Form } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
+import { Container, Form } from 'react-bootstrap';
+import { Button, Row } from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
+import "./Login.css";
+import Image from './images.png';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
  function Login() {
 
@@ -10,13 +13,17 @@ import { useHistory } from "react-router-dom";
       let path = "/home"
       history.push(path)
 
-      
     }
+
+
     return (
-        <div>
+        <div >
+            <Container >
              <form onSubmit={routeChange}>
+            <Row>
             <Form>
-                <Form.Group controlId="formBasicEmail">
+            <img className="image" src={Image}/>
+                <Form.Group controlId="formBasicEmail" >
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" />
                     <Form.Text className="text-muted">
@@ -35,8 +42,11 @@ import { useHistory } from "react-router-dom";
                     Submit
                 </Button>
                 </Form>
+                </Row>
                 </form>
+                </Container>
          </div>
+
     )
 }
 

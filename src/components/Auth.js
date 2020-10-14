@@ -1,34 +1,49 @@
-import React from 'react'
-import db from "../fireStoreData";
+import React, { useEffect, useState } from "react";
+import * as firebase from 'firebase';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-export default function Auth() {
+export const AuthContext = React.createContext();
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [emailError, setEmailError] = useState('');
-    const [paswordError, setPasswordError] = useState('');
-    const [hasAccount, setHasAccount] = useState(false);
+export const AuthProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  console.log(children)
+
+  useEffect(() => {
+
+
   
-    const handleLogin = () => {
-        db
-        .auth()
-        .signInWithEmailAndPassword(email, password)
-        .catch(err => {
-            switch(err.code){
-                case "auth/invalid-email":
-                    setEmailError(err.message);
-                    break;
-                case "auth/wrong-password":
-                    setPasswordError(err.message);
-                    break;
-            }
-        })
-    
-    }
 
-    return (
-        <div>
-            
-        </div>
-    )
-}
+    firebase.auth().onAuthStateChanged((user) => {
+      setCurrentUser(user);
+      setLoading(false);
+    });
+  }, []);
+
+//   if (loading) {
+//     return (
+//       <div
+//         style={{
+//           display: "flex",
+//           alignItems: "center",
+//           justifyContent: "center",
+//           height: "80vh",
+//         }}
+//       >
+//         <h1>Loading User...</h1>
+//       </div>
+//     );
+//   }
+
+  return (
+    <AuthContext.Provider
+      value={{
+        currentUser,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+export default AuthProvider;

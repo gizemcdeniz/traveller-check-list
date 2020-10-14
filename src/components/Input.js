@@ -1,11 +1,15 @@
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col} from 'react-bootstrap';
 import "./Form.css";
 import Toast from './Toast.js';
 import React, { useState, useEffect } from 'react';
 import db from '../fireStoreData';
 import { useHistory } from "react-router-dom";
+import Image from './images.png';
+import NavSection from './Navbar.js';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 
 function Input() {
@@ -28,6 +32,8 @@ function Input() {
       setformAccom("")
 
     }
+
+   
 
     //Redirecting page
     let history = useHistory();
@@ -54,9 +60,11 @@ function Input() {
   return (
 
     <div className="App">
-    
-      <Container fluid>
+      <NavSection/>
+    <Col>
+     
       <h4>What to pack? what should you prepare before you travel?</h4>
+      <Row className="d-flex justify-content-between">
       <form onSubmit={routeChange}>
         <Form className="form">
         <Form.Group controlId="formDestination">
@@ -105,7 +113,9 @@ function Input() {
             Create My Checklist
         </Button>
       </form>
-      </Container>
+      <img className="image" src={Image}/>
+      </Row>
+      </Col>
     </div>
   );
 }

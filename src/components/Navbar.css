@@ -1,0 +1,10 @@
+.navbar {
+    background-color: rgb(68, 81, 74);
+    border-top-left-radius: 10em;
+    border-top-right-radius: 10em;
+
+}
+
+.navbar a {
+    color: white;
+}

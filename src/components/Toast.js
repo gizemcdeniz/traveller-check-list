@@ -2,6 +2,7 @@ import {Toast} from 'react-bootstrap';
 import db from "../fireStoreData";
 import React, { useState, useEffect } from 'react'
 import Items from './Items';
+import NavSection from './Navbar.js';
 
 
 export default function TravelCard(props) {
@@ -39,6 +40,7 @@ export default function TravelCard(props) {
 
   return (
     <div>
+       <NavSection/>
       {formTrip.map((trip) => (
             <>
             <Toast>
