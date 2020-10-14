@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import TravelCard from "../../components/TravelCard";
+import Toast from "../../components/TravelCard";
 import db from "../../fireStoreData";
 
 export default function TravelCards() {
@@ -67,7 +67,7 @@ export default function TravelCards() {
   return (
     <div>
       {cards.map((cardItems) => (
-        <TravelCard items={cardItems} />
+        <Toast items={cardItems} />
       ))}
     </div>
   );

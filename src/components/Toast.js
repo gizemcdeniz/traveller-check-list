@@ -1,11 +1,12 @@
 import {Toast} from 'react-bootstrap';
 import db from "../fireStoreData";
 import React, { useState, useEffect } from 'react'
+import Items from './Items';
 
 
 export default function TravelCard(props) {
  // console.log(props.items)
-  //console.log(props)
+  console.log(props)
   //console.log(props.travelitems)
   const style = {
     width: "18rem",
@@ -42,7 +43,7 @@ export default function TravelCard(props) {
             <>
             <Toast>
                 <Toast.Header>
-                <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
+                {/* <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" /> */}
                 <strong className="mr-auto">Traveller Details</strong>
                 {/* <small>just now</small> */}
                 </Toast.Header>
@@ -50,9 +51,23 @@ export default function TravelCard(props) {
                 <Toast.Body>Destination: {trip.destination}</Toast.Body>
                 <Toast.Body>Accommodation: {trip.accommodation}</Toast.Body>
                 <Toast.Body>Weather: {trip.weather}</Toast.Body>
+                <Toast.Body>Items: {trip.weather}</Toast.Body>
+            </Toast>
+            <Toast>
+                <Toast.Header>
+                {/* <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" /> */}
+                <strong className="mr-auto">Traveller Details</strong>
+                {/* <small>just now</small> */}
+                </Toast.Header>
+                <Toast.Body>Traveller: {trip.traveller}</Toast.Body>
+                <Toast.Body>Destination: {trip.destination}</Toast.Body>
+                <Toast.Body>Accommodation: {trip.accommodation}</Toast.Body>
+                <Toast.Body>Weather: {trip.weather}</Toast.Body>
+                <Toast.Body>Items: {trip.weather}</Toast.Body>
             </Toast>
             </>
       ))}
+ 
     </div>
   );
 }
