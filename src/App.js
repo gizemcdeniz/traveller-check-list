@@ -2,8 +2,7 @@ import React from "react";
 import "./App.css";
 import Login from "./components/Login.js";
 import Input from "./components/Input.js";
-// import TravelCard from "./components/TravelCard.js";
-import Toast from "./components/Toast.js";
+import TravelCard from "./components/TravelCard.js"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar'
 import { Nav, Container } from "react-bootstrap";
@@ -42,7 +41,7 @@ export default function App() {
                 <Login />
               </Route>
               <Route path="/travelcard">
-                <Toast/>
+                <TravelCard/>
               </Route>
               <Route path="/home">
                 <Input />

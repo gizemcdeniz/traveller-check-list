@@ -2,7 +2,6 @@ import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
 import "./Form.css";
-import Toast from './Toast.js';
 import React, { useState, useEffect } from 'react';
 import db from '../fireStoreData';
 import { useHistory } from "react-router-dom";
