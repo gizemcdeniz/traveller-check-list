@@ -9,7 +9,6 @@ import AuthProvider from "./components/Auth.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar'
 import { Nav, Container } from "react-bootstrap";
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 export default function App() {

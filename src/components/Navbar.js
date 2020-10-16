@@ -5,9 +5,17 @@ import { faSuitcase } from '@fortawesome/free-solid-svg-icons'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import { faUsers } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 import "./Navbar.css";
 
 function NavSection() {
+
+    let history = useHistory();
+    const routeChange = () => {
+      let path = "/home"
+      history.push(path)
+     
+    }
     return (
         <div>
             <Navbar>
@@ -23,7 +31,7 @@ function NavSection() {
                   </Nav.Link>
 
                   <Nav.Link>
-                  <Link to="/login">Login</Link>
+                  <Link to="/login">Logout</Link>
                   </Nav.Link>
                 </Navbar>
         </div>

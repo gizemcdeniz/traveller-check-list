@@ -90,7 +90,7 @@ function Input() {
           </Form.Group>
 
           <Form.Group controlId="formAccom">
-            <Form.Label>Destination</Form.Label>
+            <Form.Label>Accommodation</Form.Label>
             <Form.Control as="select" defaultValue="Choose..." onChange={e => setformAccom(e.target.value)} value={formAccom}>
               <option value="0">Choose...</option>
               <option value="Hotel">Hotel</option>
