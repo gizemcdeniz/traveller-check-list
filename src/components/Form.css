@@ -1,5 +1,12 @@
 .form {
-    width:50%;
+    width: 500px;
    
 }
+
+.image {
+    border-radius: 34%;
+    width: 500px;
+    height: 400px;
+}
+
 
