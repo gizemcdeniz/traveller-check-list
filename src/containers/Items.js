@@ -1,46 +1,88 @@
 import React, { useState, useEffect } from "react";
-import Form from "react-bootstrap/Form";
 import db from "../fireStoreData";
+import firebase from "firebase"
 import ItemDefault from "../components/ItemDefault"
-import Button from 'react-bootstrap/Button'
-import {Row, Col} from 'react-bootstrap'
+import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import InputGroup from 'react-bootstrap/InputGroup';
+import ItemAdded from "../components/ItemAdded";
 
-function Items() {
-  const [items, setItems] = useState([]);
+function Items(props) {
+  // create new state that stores the props.tripData.items
 
-  // const fetchData = async () => {
-  //   await db.collection('trips').onSnapshot((snapshot) => {
-  //     snapshot.docChanges().forEach((change) => {
-  //       if (change.type === "added") {
-  //         console.log(change.doc.id);
-  //         setItems((prevState) => [...prevState, change.doc.data().travelitems])
-  //       }
-  //     })
-  //   })
-  // }
+  
+  console.log(props.tripData.items)
+  
+  const [defaultItems, setDefaultItems] = useState([]);
 
-  const fetchData = async ()=>{
-    //console.log("hello");
-    const res = await db.collection('defaultitems').get();
-    //console.log(res);
-   const itemsData = res.docs.map(items => items.data())
-   //console.log(itemsData)
-    // const usersRes = await db.collection('users').get() 
-    // console.log(usersRes);
-    // const usersData = usersRes.docs.map(user => user.data())
-    // console.log(usersData);
-    setItems(itemsData)
+  const [addedItems, setAddedItems] = useState();
+  const [trips, setTrips] = useState([]);
+
+  const fetchDefaultItems = async ()=>{
+     const res = await db.collection('defaultitems').get();
+     const itemsData = res.docs.map(items => {
+     const data = items.data()
+     const id = items.id
+     return { id, ...data}
+    })
+    setDefaultItems(itemsData)
   }
+
+  const fetchTripData = async ()=>{
+    const res = await db.collection('usertrip').get();
+    const tripData = res.docs.map(trip => {
+      const data = trip.data()
+      const id = trip.id
+      return { id, ...data}
+    })
+    setTrips(tripData);
+    console.log(tripData);
+    console.log(trips)
+   }
+
   useEffect(()=>{
-    fetchData()
+    fetchDefaultItems();
+    fetchTripData();
   },[])
-  console.log(items)
+
+  const addNewItem = e => {
+    console.log("Hello")
+    e.preventDefault();
+    let newItem = {
+      name: `${addedItems}`,
+      id: Date.now(),
+    }
+    console.log(addedItems)
+    console.log(newItem)
+
+    db.collection('usertrip').doc(props.tripData.id).update({
+      items:firebase.firestore.FieldValue.arrayUnion(newItem)}
+      )
+      //whenever you add a new item make sure to add it to the state too inorder to have live update
+    /* setAddedItems(newItem)
+    console.log(props.tripData.items) */
+  }
+  
   return (
     <div>
       {
-        items.map(item=><ItemDefault value={item.item}/>)
+        defaultItems.map(item=><ItemDefault value={item.item}/>)
       }
-      <Button variant="primary">Add New Item</Button>
+      {
+        props.tripData.items.map(item => <h1>item</h1>)
+      }
+      <form onSubmit={addNewItem}>
+      <InputGroup  className="mb-3">
+        <FormControl
+          onChange={e=> setAddedItems(e.target.value)}
+          placeholder="Add New Item"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+        <InputGroup.Append>
+          <Button type="submit" variant="outline-secondary">Add Item</Button>
+        </InputGroup.Append>
+      </InputGroup>
+      </form>
     </div>
   );
 }

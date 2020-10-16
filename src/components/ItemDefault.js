@@ -4,7 +4,7 @@ import Icon from '@material-ui/core/Icon';
 import {Row, Col} from 'react-bootstrap'
 
 export default function ItemDefault(props) {
-    console.log(props)
+    
     return (
         <div>
          <Row>

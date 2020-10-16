@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TravelCard from "../components/TravelCard";
 import db from "../fireStoreData";
-
+import {Row, Col} from 'react-bootstrap'
 export default function TravelCards() {
   const [cards, setCards] = useState([]);
  
@@ -9,13 +9,15 @@ export default function TravelCards() {
   //And assign it to the cards state
   const fetchData = async () => {
     
-    
     await db.collection("usertrip").onSnapshot((snapshot) => {
       snapshot.docChanges().forEach((change) => {
+
         if (change.type === "added") {
           console.log(change.doc.id);
-          setCards((prevState) => [...prevState, change.doc.data().item]);
-        } else if (change.type === "modified") {
+          setCards((prevState) => [...prevState, {...change.doc.data().items,id:change.doc.id}]);
+        } 
+        
+        else if (change.type === "modified") {
           console.log(change.doc.data(), "=>", change.doc.id);
           setCards((prevCards) => {
             const newArrayCards = [...prevCards];
@@ -29,8 +31,9 @@ export default function TravelCards() {
             }
             return newArrayCards;
           })
-
-        } else if (change.type === "removed") {
+        } 
+        
+        else if (change.type === "removed") {
           // change.doc.id === shows the deleted board id
           // !== change.doc.id
           setCards((prevCards) => {
@@ -58,17 +61,19 @@ export default function TravelCards() {
     //setItems(itemsArray)
   };
 
-  console.log(cards);
+  console.log(cards)
   useEffect(() => {
     fetchData();
   }, []);
-
+  
   // Using the card state we loop through it to create each card
   return (
     <div>
+      <Row>
       {cards.map((cardItems) => (
-        <TravelCard items={cardItems} />
+        <TravelCard {...cardItems} />
       ))}
+      </Row>
     </div>
   );
 }

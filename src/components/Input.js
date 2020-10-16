@@ -20,10 +20,11 @@ function Input() {
         accommodation: formAccom,
         weather: formWeather,
         traveller: formTraveller,
+        items: [],
       })
       setformDestination("")
-      setformWeather()
-      setformTraveller()
+      setformWeather("")
+      setformTraveller("")
       setformAccom("")
 
     }
