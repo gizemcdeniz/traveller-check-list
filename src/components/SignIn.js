@@ -100,9 +100,6 @@ const SignIn = () => {
         <Button variant="primary" type="submit" onClick={login}>
             Login
         </Button>
-        <Button variant="primary" type="submit" onClick={logOut}>
-            LogOut
-        </Button>
         </Form>
     
     </>

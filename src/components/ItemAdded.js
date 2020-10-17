@@ -9,7 +9,7 @@ export default function ItemAdded(props) {
         <div>
          <Row>
             <Form.Group controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label={props.value} />
+            <Form.Check type="checkbox" label={props.items} />
             <Icon color="primary">edit</Icon>
             <Icon color="primary">delete</Icon>
             </Form.Group>

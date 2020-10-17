@@ -10,7 +10,8 @@ function Items(props) {
   // create new state that stores the props.tripData.items
 
   
-  console.log(props.tripData.items)
+  console.log(props.tripData.items.map(item => item.name[0]))
+  
   
   const [defaultItems, setDefaultItems] = useState([]);
 
@@ -46,7 +47,6 @@ function Items(props) {
 
   const addNewItem = e => {
     console.log("Hello")
-    e.preventDefault();
     let newItem = {
       name: `${addedItems}`,
       id: Date.now(),
@@ -68,9 +68,10 @@ function Items(props) {
         defaultItems.map(item=><ItemDefault value={item.item}/>)
       }
       {
-        props.tripData.items.map(item => <h1>item</h1>)
+        // props.tripData.items.map(item => <h1>item</h1>)
+        props.tripData.items.map(item =><ItemDefault value={item.name}/>)
       }
-      <form onSubmit={addNewItem}>
+      <form onClick={addNewItem} >
       <InputGroup  className="mb-3">
         <FormControl
           onChange={e=> setAddedItems(e.target.value)}
