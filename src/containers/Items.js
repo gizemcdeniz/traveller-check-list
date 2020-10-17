@@ -42,7 +42,7 @@ function Items(props) {
 
   useEffect(()=>{
     fetchDefaultItems();
-    fetchTripData();
+    /* fetchTripData(); */
   },[])
 
   const refreshPage = () => {
@@ -73,7 +73,7 @@ function Items(props) {
       }
       {
         // props.tripData.items.map(item => <h1>item</h1>)
-        props.tripData.items.map(item =><ItemDefault value={item.name}/>)
+        props.tripData.items.map(item =><ItemAdded value={item.name}/>)
       }
       <form onClick={addNewItem} >
       <InputGroup  className="mb-3">
@@ -85,6 +85,9 @@ function Items(props) {
         />
         <InputGroup.Append>
           <Button type="submit" onClick={refreshPage} variant="outline-secondary">Add Item</Button>
+        </InputGroup.Append>
+        <InputGroup.Append>
+          <Button type="submit" onClick={deleteCard} variant="outline-secondary">Delete Card</Button>
         </InputGroup.Append>
       </InputGroup>
       </form>
