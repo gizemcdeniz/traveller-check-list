@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import Items from '../containers/Items';
 import InputGroup from 'react-bootstrap/InputGroup';
 import NavSection from './Navbar.js';
+import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
 export default function TravelCard(props) {
   const style = {
@@ -25,6 +26,12 @@ export default function TravelCard(props) {
         fetchData()
       },[])
 
+  const deleteCard = e => {
+    console.log("Hello")
+    db.collection('usertrip').doc(formTrip.id).delete();
+
+  }
+  console.log(formTrip.id)
   return (
    
     <div>
@@ -41,6 +48,8 @@ export default function TravelCard(props) {
                 <Toast.Body>Accommodation: {trip.accommodation}</Toast.Body>
                 <Toast.Body>Weather: {trip.weather}</Toast.Body>
                 <Toast.Body>Items: <Items tripData={trip} /></Toast.Body>
+                <Button type="submit" onClick={deleteCard} variant="outline-secondary">Delete Card</Button>
+        
             </Toast>
             </>
       ))}
