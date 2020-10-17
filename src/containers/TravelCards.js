@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import TravelCard from "../components/TravelCard";
 import db from "../fireStoreData";
 import {Row, Col} from 'react-bootstrap'
+import NavSection from './Navbar.js';
 export default function TravelCards() {
   const [cards, setCards] = useState([]);
  

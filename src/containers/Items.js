@@ -10,7 +10,7 @@ function Items(props) {
   // create new state that stores the props.tripData.items
 
   
-  console.log(props.tripData.items.map(item => item.name[0]))
+  console.log(props.tripData.items.map(item => item.name))
   
   
   const [defaultItems, setDefaultItems] = useState([]);
@@ -44,6 +44,10 @@ function Items(props) {
     fetchDefaultItems();
     fetchTripData();
   },[])
+
+  const refreshPage = () => {
+    window.location.reload(false);
+  }
 
   const addNewItem = e => {
     console.log("Hello")
@@ -80,7 +84,7 @@ function Items(props) {
           aria-describedby="basic-addon2"
         />
         <InputGroup.Append>
-          <Button type="submit" variant="outline-secondary">Add Item</Button>
+          <Button type="submit" onClick={refreshPage} variant="outline-secondary">Add Item</Button>
         </InputGroup.Append>
       </InputGroup>
       </form>

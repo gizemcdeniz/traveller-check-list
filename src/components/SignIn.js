@@ -66,13 +66,11 @@ const SignIn = () => {
         {registerInfo ? (<Alert variant="success">
         <Alert.Heading>Hey, nice to see you</Alert.Heading>
         <p>
-          Aww yeah, you successfully read this important alert message. This example
-          text is going to run a bit longer so that you can see how spacing within an
-          alert works with this kind of content.
+          Now, Login and begin to prepare your suitcase!
         </p>
       </Alert> ) : null}
       {!registerInfo && errorMessage ? (<Alert variant="danger">
-        <Alert.Heading>Hey, nice to see you</Alert.Heading>
+        <Alert.Heading>Hey, BUT!</Alert.Heading>
         <p>
           {errorMessage}
         </p>

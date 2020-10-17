@@ -5,7 +5,7 @@ import "./Form.css";
 import React, { useState, useEffect } from 'react';
 import db from '../fireStoreData';
 import { useHistory } from "react-router-dom";
-import Image from './images.png';
+// import Image from '../image.png';
 import NavSection from './Navbar.js';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -113,7 +113,7 @@ function Input() {
             Create My Checklist
         </Button>
       </form>
-      <img className="image" src={Image}/>
+      {/* <img className="image" src={Image}/> */}
       </Row>
       </Col>
     </div>

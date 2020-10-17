@@ -3,6 +3,7 @@ import db from "../fireStoreData";
 import React, { useState, useEffect } from 'react'
 import Items from '../containers/Items';
 import InputGroup from 'react-bootstrap/InputGroup';
+import NavSection from './Navbar.js';
 
 export default function TravelCard(props) {
   const style = {
@@ -25,6 +26,7 @@ export default function TravelCard(props) {
       },[])
 
   return (
+   
     <div>
       {formTrip.map((trip) => (
             <>

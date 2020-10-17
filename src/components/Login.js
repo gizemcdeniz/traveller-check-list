@@ -3,7 +3,7 @@ import { Container, Form } from 'react-bootstrap';
 import { Button, Row } from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
 import "./Login.css";
-import Image from './images.png';
+// import Image from './imagess.png';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
  function Login() {
@@ -22,7 +22,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
              <form onSubmit={routeChange}>
             <Row>
             <Form>
-            <img className="image" src={Image}/>
+            {/* <img className="image" src={Image}/> */}
                 <Form.Group controlId="formBasicEmail" >
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" />
