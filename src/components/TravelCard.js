@@ -1,4 +1,4 @@
-import {Toast} from 'react-bootstrap';
+import {Toast, Row} from 'react-bootstrap';
 import db from "../fireStoreData";
 import React, { useState, useEffect } from 'react'
 import Items from '../containers/Items';
@@ -44,7 +44,6 @@ export default function TravelCard(props) {
             </Toast>
             </>
       ))}
- 
     </div>
   );
 }

@@ -29,9 +29,11 @@ function NavSection() {
                   <Nav.Link>
                   <FontAwesomeIcon icon={ faUsers} />  <Link to="/about">About</Link>
                   </Nav.Link>
-
                   <Nav.Link>
-                  <Link to="/login">Logout</Link>
+                  <Link to="/login">Login</Link>
+                  </Nav.Link>
+                  <Nav.Link>
+                  <Link to="/login">Logut</Link>
                   </Nav.Link>
                 </Navbar>
         </div>

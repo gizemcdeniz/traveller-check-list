@@ -5,9 +5,11 @@ import Input from "./components/Input.js";
 import AuthProvider from "./components/Auth"
 import TravelCard from "./components/TravelCard.js"
 import SignIn from "./components/SignIn"
+import About from "./components/About"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar'
 import { Nav, Container } from "react-bootstrap";
+
 
 export default function App() {
   return (
@@ -30,6 +32,9 @@ export default function App() {
                 <Input />
               </Route>
          
+              <Route path="/about">
+                <About />
+              </Route>
           </div>
         </Router>
      

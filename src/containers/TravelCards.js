@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TravelCard from "../components/TravelCard";
 import db from "../fireStoreData";
-import {Row, Col} from 'react-bootstrap'
+import {Row, Col, Container} from 'react-bootstrap'
 import NavSection from './Navbar.js';
 export default function TravelCards() {
   const [cards, setCards] = useState([]);
@@ -69,12 +69,13 @@ export default function TravelCards() {
   
   // Using the card state we loop through it to create each card
   return (
-    <div>
+    <div className="travelCardSection">
       <Row>
       {cards.map((cardItems) => (
         <TravelCard {...cardItems} />
       ))}
       </Row>
+
     </div>
   );
 }
