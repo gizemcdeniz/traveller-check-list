@@ -3,6 +3,7 @@ import TravelCard from "../components/TravelCard";
 import db from "../fireStoreData";
 import {Row, Col, Container} from 'react-bootstrap'
 import NavSection from './Navbar.js';
+import NavSection from './components/Navbar.js';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
 
 
@@ -72,6 +73,8 @@ export default function TravelCards() {
   
   // Using the card state we loop through it to create each card
   return (
+   <div>
+     <NavSection/>
     <Row>
     <div>
       {cards.map((cardItems) => (
@@ -79,5 +82,6 @@ export default function TravelCards() {
       ))}
     </div>
     </Row>
+    </div>
   );
 }

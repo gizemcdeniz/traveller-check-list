@@ -87,7 +87,7 @@ function Items(props) {
           <Button type="submit" onClick={refreshPage} variant="outline-secondary">Add Item</Button>
         </InputGroup.Append>
         <InputGroup.Append>
-          <Button type="submit" onClick={deleteCard} variant="outline-secondary">Delete Card</Button>
+          {/* <Button type="submit" onClick={deleteCard} variant="outline-secondary">Delete Card</Button> */}
         </InputGroup.Append>
       </InputGroup>
       </form>

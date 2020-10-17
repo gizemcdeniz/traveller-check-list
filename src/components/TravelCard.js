@@ -26,17 +26,19 @@ export default function TravelCard(props) {
         fetchData()
       },[])
 
-  const deleteCard = e => {
-    console.log("Hello")
-    db.collection('usertrip').doc(formTrip.id).delete();
+  // const deleteCard = e => {
+  //   console.log("Hello")
+  //   db.collection('usertrip').doc(formTrip.id).delete();
 
-  }
+  // }
+
   console.log(formTrip.id)
   return (
    
     <div>
       {formTrip.map((trip) => (
             <>
+         
             <Toast>
                 <Toast.Header>
                 {/* <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" /> */}
@@ -48,7 +50,7 @@ export default function TravelCard(props) {
                 <Toast.Body>Accommodation: {trip.accommodation}</Toast.Body>
                 <Toast.Body>Weather: {trip.weather}</Toast.Body>
                 <Toast.Body>Items: <Items tripData={trip} /></Toast.Body>
-                <Button type="submit" onClick={deleteCard} variant="outline-secondary">Delete Card</Button>
+                <Button type="submit" variant="outline-secondary">Delete Card</Button>
         
             </Toast>
             </>
