@@ -10,7 +10,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar'
 import { Nav, Container } from "react-bootstrap";
 
-
 export default function App() {
   return (
     <Container>
